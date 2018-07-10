@@ -41,6 +41,10 @@ http {
 	ignore_invalid_headers	on;
 	index index.html;
 
+	add_header Cache-Control no-store;
+	add_header X-XSS-Protection "1; mode=block";
+	add_header X-Frame-Options SAMEORIGIN;
+
 	server {
 		listen 443 default_server;
 		server_name "~^(?<myhost>.+)$";
